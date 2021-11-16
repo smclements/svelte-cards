@@ -42,8 +42,12 @@
 		{/if}
 
 		<div class="card__footer">
-			<button class="btn  card__btn">Share</button>
-			<div>
+			<button class="btn  card__btn">
+				Share
+				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-bottom: -2px">
+					<path fill="currentColor" d="M9 3.88V0l6 6-6 6V8.03C2.02 7.87 2.32 12.78 4.1 16-.3 11.26.64 3.66 9 3.88z"/>
+				</svg>
+			</button>		<div>
 				<button class="btn  card__btn">Yes</button>
 				<button class="btn  card__btn">No</button>
 			</div>
@@ -65,6 +69,11 @@
 		padding: 0.5rem;
 		text-transform: lowercase;
 		min-width: 4rem;
+	}
+
+	.btn:hover{
+		background-color: yellowgreen;
+		color: #333333;
 	}
 
 	.btnInfo {

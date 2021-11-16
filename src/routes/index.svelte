@@ -25,10 +25,38 @@
             heading:"Education",
 			text: "Should schools be closed for the rest of the year?",
             owner: "Department of Education",
-			responses: 0,
+			responses: 200,
+			expires: "00:00:05",
+			info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
+		},
+		{
+			id: 4,
+            heading: "Public Health",
+			text: "Is 90% vaccination rate high enough? The 90 percent vaccination milestone is higher than what we would have initially imagined but we need to keep going, he says, it is not a target - it is a milestone.",
+			owner: "Dylan",
+			responses: 1620,
+			expires: "02:30:00",
+			info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
+		},
+		{
+			id: 5,
+            heading:"Public Health",
+            text: "Will you take a booster shot? Ultimately the booster shots will be available to everyone, though those initially seeking a third shot will be the over-65s, border workers and medical staff - the first cohort to be vaccinated earlier this year.",
+            owner: "CDHB",
+			responses: 400,
+			expires: "00:06:00",
+			info: "Nullam integer scelerisque tortor cum eget tempus vulputate iaculis curabitur, molestie vitae ac dapibus natoque aliquam orci duis, congue porta metus fames at potenti ligula mollis."
+		},
+		{
+			id: 6,
+            heading:"Public Health",
+			text: "Is the government backtracking? It is looking increasingly likely the whole country will move to the Covid-19 traffic light system before every district health board (DHB) has hit 90 percent fully vaccinated.",
+            owner: "Department of Education",
+			responses: 1350,
 			expires: "00:00:05",
 			info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
 		}
+
 	];
 
 	let displayDate = new Date();
