@@ -71,7 +71,7 @@
 		min-width: 4rem;
 	}
 
-	.btn:hover{
+	.card__footer .btn:hover{
 		background-color: yellowgreen;
 		color: #333333;
 	}
