@@ -71,7 +71,4 @@
 		opacity: 0;
 	}
 
-	:global(html).dark .dark {
-		opacity: 1;
-	}
 </style>
