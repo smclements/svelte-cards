@@ -1,5 +1,6 @@
 <script>
 	import Card from './card.svelte';
+	import ThemeToggler from '$lib/ThemeToggler.svelte';
 
 	let questions = [
 		{
@@ -97,8 +98,10 @@
 					/></svg
 				>
 			</button>
-
-			<button class="signin">Sign in</button>
+			<div style="display:flex">
+				<button class="signin">Sign in</button>
+				<ThemeToggler />
+			</div>			
 		</div>
 
 		<h2>
@@ -117,19 +120,29 @@
 	</ul>
 </div>
 
+
 <style>
+	.login {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	
 	.cards {
 		display: flex;
 		flex-wrap: wrap;
 		list-style: none;
 		margin: 0;
 		padding: 0;
+		background-color: var(--bg);
+		transition: background-color 0.6s;
 	}
 
 	.cards__item {
 		display: flex;
 		padding: 1rem;
 		width: 100%;
+		
 	}
 
 	@media (min-width: 40rem) {
@@ -138,9 +151,9 @@
 		}
 	}
 
-	@media (min-width: 120rem) {
+	@media (min-width: 80rem) {
 		.cards__item {
-			width: 25%;
+			width: 30%;
 		}
 	}
 
@@ -162,10 +175,10 @@
 
 	.preamble {
 		margin-left: 2rem;
-		color: #353739;
+		color: var(--fg-light);
 	}
 
-	.preamble .login {
+	.preamble > .login {
 		display: flex;
 		justify-content: space-between;
 	}
@@ -178,7 +191,8 @@
 	button.signin {
 		border: none;
 		background-color: transparent;
+		color: var(--fg);
 		font-size: 1.75em;
-		margin-right: 4rem;
+		margin-right: 1.75rem;
 	}
 </style>

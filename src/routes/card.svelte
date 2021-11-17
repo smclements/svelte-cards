@@ -63,9 +63,9 @@
 	}
 
 	.btn {
-		background-color: white;
+		background-color: var(--bg);
 		border: 1px solid #cccccc;
-		color: #999999;
+		color: var(--fg);
 		padding: 0.5rem;
 		text-transform: lowercase;
 		min-width: 4rem;
@@ -73,12 +73,13 @@
 
 	.card__footer .btn:hover{
 		background-color: yellowgreen;
-		color: #333333;
+		color: var(--fg);
 	}
 
 	.btnInfo {
 		height: 2rem;
 		border: none;
+		background-color: inherit;
 	}
     
 	.btnInfo > svg {
@@ -86,7 +87,8 @@
 	}
 
 	.card {
-		background-color: white;
+		background-color: inherit;
+
 		border-radius: 0.25rem;
 		box-shadow: 0 20px 40px -14px rgba(0, 0, 0, 0.25);
 		display: flex;
@@ -102,12 +104,13 @@
 		padding: 1rem;
 		transition: transform 0.4s;
 		transform-style: preserve-3d;
+		background-color: var(--bg-light);
 	}
 
 	.card__footer {
 		display: flex;
 		justify-content: space-between;
-		background: aliceblue;
+		background: inherit;
 		width: 100%;
         margin-top: auto;
 	}
@@ -119,13 +122,13 @@
 	}
 
 	.card__info_text {
-		color: #696969;
+		color: var(--fg);
 		font-size: 0.7rem;
 		font-weight: 300;
 	}
 
 	.card__title {
-		color: #696969;
+		color: var(--fg);
 		font-size: 1.25rem;
 		font-weight: 300;
 		letter-spacing: 2px;
