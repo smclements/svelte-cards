@@ -4,7 +4,7 @@ import { set_paths, assets } from './runtime/paths.js';
 import { set_prerendering } from './runtime/env.js';
 import * as user_hooks from "./hooks.js";
 
-const template = ({ head, body }) => "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t\t<link rel=\"icon\" href=\"/favicon.png\" />\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n\t\t" + head + "\n\t</head>\n\t<body>\n\t\t<div id=\"svelte\">" + body + "</div>\n\t</body>\n</html>\n";
+const template = ({ head, body }) => "<!DOCTYPE html>\n<html lang=\"en\">\n\t<head>\n\t\t<meta charset=\"utf-8\" />\n\t\t<meta name=\"viewport\" content=\"width=device-width\">\n\t\t<meta name=\"theme-color\" content=\"#333333\">\n\t\n\t\t<script>\n\t\t\ttry {\n\t\t\t\tif (!('theme' in localStorage)) {\n\t\t\t\t\tlocalStorage.theme = window.matchMedia('(prefers-color-scheme: dark)').matches\n\t\t\t\t\t\t? 'dark'\n\t\t\t\t\t\t: 'light';\n\t\t\t\t}\n\t\n\t\t\t\tdocument.querySelector('html').classList.add(localStorage.theme);\n\t\t\t} catch (e) {\n\t\t\t\tconsole.error(e);\n\t\t\t}\n\t\t</script>\n\n\t\t<!-- <link rel=\"manifest\" href=\"/manifest.json\"> -->\n\t\t<link rel=\"icon\" href=\"/favicon.png\" />\n\n\t\t" + head + "\n\t</head>\n\t<body>\n\t\t<div id=\"svelte\">" + body + "</div>\n\t</body>\n</html>\n";
 
 let options = null;
 
@@ -22,9 +22,9 @@ export function init(settings = default_settings) {
 		amp: false,
 		dev: false,
 		entry: {
-			file: assets + "/_app/start-1e4af62f.js",
+			file: assets + "/_app/start-8d3d29ea.js",
 			css: [assets + "/_app/assets/start-61d1577b.css"],
-			js: [assets + "/_app/start-1e4af62f.js",assets + "/_app/chunks/vendor-3d559180.js"]
+			js: [assets + "/_app/start-8d3d29ea.js",assets + "/_app/chunks/vendor-7d8a119d.js"]
 		},
 		fetched: undefined,
 		floc: false,
@@ -71,22 +71,22 @@ const empty = () => ({});
 
 const manifest = {
 	assets: [{"file":"favicon.png","size":1571,"type":"image/png"},{"file":"logo.svg","size":1908,"type":"image/svg+xml"}],
-	layout: ".svelte-kit/build/components/layout.svelte",
-	error: ".svelte-kit/build/components/error.svelte",
+	layout: "src/routes/__layout.svelte",
+	error: "src/routes/__error.svelte",
 	routes: [
 		{
 						type: 'page',
 						pattern: /^\/$/,
 						params: empty,
-						a: [".svelte-kit/build/components/layout.svelte", "src/routes/index.svelte"],
-						b: [".svelte-kit/build/components/error.svelte"]
+						a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+						b: ["src/routes/__error.svelte"]
 					},
 		{
 						type: 'page',
 						pattern: /^\/card\/?$/,
 						params: empty,
-						a: [".svelte-kit/build/components/layout.svelte", "src/routes/card.svelte"],
-						b: [".svelte-kit/build/components/error.svelte"]
+						a: ["src/routes/__layout.svelte", "src/routes/card.svelte"],
+						b: ["src/routes/__error.svelte"]
 					}
 	]
 };
@@ -101,10 +101,10 @@ const get_hooks = hooks => ({
 });
 
 const module_lookup = {
-	".svelte-kit/build/components/layout.svelte": () => import("./components/layout.svelte"),".svelte-kit/build/components/error.svelte": () => import("./components/error.svelte"),"src/routes/index.svelte": () => import("../../src/routes/index.svelte"),"src/routes/card.svelte": () => import("../../src/routes/card.svelte")
+	"src/routes/__layout.svelte": () => import("../../src/routes/__layout.svelte"),"src/routes/__error.svelte": () => import("../../src/routes/__error.svelte"),"src/routes/index.svelte": () => import("../../src/routes/index.svelte"),"src/routes/card.svelte": () => import("../../src/routes/card.svelte")
 };
 
-const metadata_lookup = {".svelte-kit/build/components/layout.svelte":{"entry":"layout.svelte-cdf345b0.js","css":[],"js":["layout.svelte-cdf345b0.js","chunks/vendor-3d559180.js"],"styles":[]},".svelte-kit/build/components/error.svelte":{"entry":"error.svelte-d054bb4b.js","css":[],"js":["error.svelte-d054bb4b.js","chunks/vendor-3d559180.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-ee7c2dc7.js","css":["assets/pages/index.svelte-9022f80e.css","assets/pages/card.svelte-8f15fc17.css"],"js":["pages/index.svelte-ee7c2dc7.js","chunks/vendor-3d559180.js","pages/card.svelte-3c1d68d8.js"],"styles":[]},"src/routes/card.svelte":{"entry":"pages/card.svelte-3c1d68d8.js","css":["assets/pages/card.svelte-8f15fc17.css"],"js":["pages/card.svelte-3c1d68d8.js","chunks/vendor-3d559180.js"],"styles":[]}};
+const metadata_lookup = {"src/routes/__layout.svelte":{"entry":"pages/__layout.svelte-7a62f02a.js","css":["assets/pages/__layout.svelte-fa45c76a.css","assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css"],"js":["pages/__layout.svelte-7a62f02a.js","chunks/vendor-7d8a119d.js"],"styles":[]},"src/routes/__error.svelte":{"entry":"pages/__error.svelte-ccbad493.js","css":["assets/pages/__error.svelte-e11d9de6.css"],"js":["pages/__error.svelte-ccbad493.js","chunks/vendor-7d8a119d.js"],"styles":[]},"src/routes/index.svelte":{"entry":"pages/index.svelte-a9b045af.js","css":["assets/pages/index.svelte-36782fd4.css","assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css","assets/pages/card.svelte-67c3c3e1.css"],"js":["pages/index.svelte-a9b045af.js","chunks/vendor-7d8a119d.js","pages/card.svelte-7f274a04.js"],"styles":[]},"src/routes/card.svelte":{"entry":"pages/card.svelte-7f274a04.js","css":["assets/pages/card.svelte-67c3c3e1.css"],"js":["pages/card.svelte-7f274a04.js","chunks/vendor-7d8a119d.js"],"styles":[]}};
 
 async function load_component(file) {
 	const { entry, css, js, styles } = metadata_lookup[file];

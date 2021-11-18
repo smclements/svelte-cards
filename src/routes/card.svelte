@@ -2,7 +2,22 @@
 	import { fade } from 'svelte/transition';
 	export let question;
 
-	let approxCount = Math.floor(question.responses / 100) * 100;
+	let approxCount = 0;
+	
+	if (!question){
+		question = 		{
+			id: 1,
+            heading: "Politics",
+			text: "Should Auckland come out of lockdown? Auckland and parts of Waikato are at Alert Level 3 Step 2. Settings for Auckland will be reviewed on Monday 22 November 2021",
+			owner: "Dylan",
+			responses: 1000,
+			expires: "02:00:00",
+			info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
+		}
+	}
+	
+	Math.floor(question.responses / 100) * 100;
+
 	let responseMsg = 'Fewer than 100 responses';
 	if (approxCount > 0) {
 		responseMsg = 'More than ' + approxCount + ' responses';

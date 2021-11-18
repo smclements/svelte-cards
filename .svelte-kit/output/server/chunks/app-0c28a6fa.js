@@ -309,14 +309,14 @@ function stringifyString(str) {
   result += '"';
   return result;
 }
-function noop() {
+function noop$1() {
 }
 function safe_not_equal(a, b) {
   return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
 }
 Promise.resolve();
 const subscriber_queue = [];
-function writable(value, start = noop) {
+function writable(value, start = noop$1) {
   let stop;
   const subscribers = new Set();
   function set(new_value) {
@@ -340,11 +340,11 @@ function writable(value, start = noop) {
   function update(fn) {
     set(fn(value));
   }
-  function subscribe(run2, invalidate = noop) {
+  function subscribe2(run2, invalidate = noop$1) {
     const subscriber = [run2, invalidate];
     subscribers.add(subscriber);
     if (subscribers.size === 1) {
-      stop = start(set) || noop;
+      stop = start(set) || noop$1;
     }
     run2(value);
     return () => {
@@ -355,7 +355,7 @@ function writable(value, start = noop) {
       }
     };
   }
-  return { set, update, subscribe };
+  return { set, update, subscribe: subscribe2 };
 }
 function hash(value) {
   let hash2 = 5381;
@@ -1286,6 +1286,8 @@ async function respond(incoming, options2, state = {}) {
     };
   }
 }
+function noop() {
+}
 function run(fn) {
   return fn();
 }
@@ -1294,6 +1296,13 @@ function blank_object() {
 }
 function run_all(fns) {
   fns.forEach(run);
+}
+function subscribe(store, ...callbacks) {
+  if (store == null) {
+    return noop;
+  }
+  const unsub = store.subscribe(...callbacks);
+  return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
 let current_component;
 function set_current_component(component) {
@@ -1306,6 +1315,9 @@ function get_current_component() {
 }
 function setContext(key, context) {
   get_current_component().$$.context.set(key, context);
+}
+function getContext(key) {
+  return get_current_component().$$.context.get(key);
 }
 Promise.resolve();
 const escaped = {
@@ -1426,7 +1438,31 @@ var user_hooks = /* @__PURE__ */ Object.freeze({
   __proto__: null,
   [Symbol.toStringTag]: "Module"
 });
-const template = ({ head, body }) => '<!DOCTYPE html>\n<html lang="en">\n	<head>\n		<meta charset="utf-8" />\n		<link rel="icon" href="/favicon.png" />\n		<meta name="viewport" content="width=device-width, initial-scale=1" />\n		' + head + '\n	</head>\n	<body>\n		<div id="svelte">' + body + "</div>\n	</body>\n</html>\n";
+const template = ({ head, body }) => `<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width">
+		<meta name="theme-color" content="#333333">
+	
+		<script>
+			try {
+				if (!('theme' in localStorage)) {
+					localStorage.theme = window.matchMedia('(prefers-color-scheme: dark)').matches
+						? 'dark'
+						: 'light';
+				}
+	
+				document.querySelector('html').classList.add(localStorage.theme);
+			} catch (e) {
+				console.error(e);
+			}
+		<\/script>
+
+		<!-- <link rel="manifest" href="/manifest.json"> -->
+		<link rel="icon" href="/favicon.png" />
+
+		` + head + '\n	</head>\n	<body>\n		<div id="svelte">' + body + "</div>\n	</body>\n</html>\n";
 let options = null;
 const default_settings = { paths: { "base": "", "assets": "" } };
 function init(settings = default_settings) {
@@ -1437,9 +1473,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-1e4af62f.js",
+      file: assets + "/_app/start-8d3d29ea.js",
       css: [assets + "/_app/assets/start-61d1577b.css"],
-      js: [assets + "/_app/start-1e4af62f.js", assets + "/_app/chunks/vendor-3d559180.js"]
+      js: [assets + "/_app/start-8d3d29ea.js", assets + "/_app/chunks/vendor-7d8a119d.js"]
     },
     fetched: void 0,
     floc: false,
@@ -1469,22 +1505,22 @@ function init(settings = default_settings) {
 const empty = () => ({});
 const manifest = {
   assets: [{ "file": "favicon.png", "size": 1571, "type": "image/png" }, { "file": "logo.svg", "size": 1908, "type": "image/svg+xml" }],
-  layout: ".svelte-kit/build/components/layout.svelte",
-  error: ".svelte-kit/build/components/error.svelte",
+  layout: "src/routes/__layout.svelte",
+  error: "src/routes/__error.svelte",
   routes: [
     {
       type: "page",
       pattern: /^\/$/,
       params: empty,
-      a: [".svelte-kit/build/components/layout.svelte", "src/routes/index.svelte"],
-      b: [".svelte-kit/build/components/error.svelte"]
+      a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
+      b: ["src/routes/__error.svelte"]
     },
     {
       type: "page",
       pattern: /^\/card\/?$/,
       params: empty,
-      a: [".svelte-kit/build/components/layout.svelte", "src/routes/card.svelte"],
-      b: [".svelte-kit/build/components/error.svelte"]
+      a: ["src/routes/__layout.svelte", "src/routes/card.svelte"],
+      b: ["src/routes/__error.svelte"]
     }
   ]
 };
@@ -1495,12 +1531,12 @@ const get_hooks = (hooks) => ({
   externalFetch: hooks.externalFetch || fetch
 });
 const module_lookup = {
-  ".svelte-kit/build/components/layout.svelte": () => import("./layout-70a3c5e7.js"),
-  ".svelte-kit/build/components/error.svelte": () => import("./error-cf75a051.js"),
-  "src/routes/index.svelte": () => import("./index-bf49ce97.js"),
-  "src/routes/card.svelte": () => import("./card-07b649d9.js")
+  "src/routes/__layout.svelte": () => import("./__layout-1251b2d0.js"),
+  "src/routes/__error.svelte": () => import("./__error-c537e8cb.js"),
+  "src/routes/index.svelte": () => import("./index-7e7ffbfd.js"),
+  "src/routes/card.svelte": () => import("./card-52d08d3c.js")
 };
-const metadata_lookup = { ".svelte-kit/build/components/layout.svelte": { "entry": "layout.svelte-cdf345b0.js", "css": [], "js": ["layout.svelte-cdf345b0.js", "chunks/vendor-3d559180.js"], "styles": [] }, ".svelte-kit/build/components/error.svelte": { "entry": "error.svelte-d054bb4b.js", "css": [], "js": ["error.svelte-d054bb4b.js", "chunks/vendor-3d559180.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-ee7c2dc7.js", "css": ["assets/pages/index.svelte-9022f80e.css", "assets/pages/card.svelte-8f15fc17.css"], "js": ["pages/index.svelte-ee7c2dc7.js", "chunks/vendor-3d559180.js", "pages/card.svelte-3c1d68d8.js"], "styles": [] }, "src/routes/card.svelte": { "entry": "pages/card.svelte-3c1d68d8.js", "css": ["assets/pages/card.svelte-8f15fc17.css"], "js": ["pages/card.svelte-3c1d68d8.js", "chunks/vendor-3d559180.js"], "styles": [] } };
+const metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-7a62f02a.js", "css": ["assets/pages/__layout.svelte-fa45c76a.css", "assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css"], "js": ["pages/__layout.svelte-7a62f02a.js", "chunks/vendor-7d8a119d.js"], "styles": [] }, "src/routes/__error.svelte": { "entry": "pages/__error.svelte-ccbad493.js", "css": ["assets/pages/__error.svelte-e11d9de6.css"], "js": ["pages/__error.svelte-ccbad493.js", "chunks/vendor-7d8a119d.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-a9b045af.js", "css": ["assets/pages/index.svelte-36782fd4.css", "assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css", "assets/pages/card.svelte-67c3c3e1.css"], "js": ["pages/index.svelte-a9b045af.js", "chunks/vendor-7d8a119d.js", "pages/card.svelte-7f274a04.js"], "styles": [] }, "src/routes/card.svelte": { "entry": "pages/card.svelte-7f274a04.js", "css": ["assets/pages/card.svelte-67c3c3e1.css"], "js": ["pages/card.svelte-7f274a04.js", "chunks/vendor-7d8a119d.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -1517,4 +1553,4 @@ function render(request, {
   const host = request.headers["host"];
   return respond({ ...request, host }, options, { prerender });
 }
-export { each as a, create_ssr_component as c, escape as e, init as i, render as r, validate_component as v };
+export { each as a, create_ssr_component as c, escape as e, getContext as g, init as i, render as r, subscribe as s, validate_component as v };
