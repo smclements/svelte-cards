@@ -1,6 +1,7 @@
 <script>
 	import Card from './card.svelte';
 	import ThemeToggler from '$lib/ThemeToggler.svelte';
+	import { onMount } from 'svelte';
 
 	let questions = [
 		{
@@ -58,7 +59,15 @@
 			info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
 		}
 
-	];
+	];	
+
+	/*let questions = []
+
+	onMount(async () => {
+		const response = await fetch('https://localhost:44335/api/survey/questions')
+
+		questions = await response.json()
+	})*/
 
 	let displayDate = new Date();
 </script>
