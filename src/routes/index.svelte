@@ -11,6 +11,7 @@
 			owner: "Dylan",
 			responses: 1000,
 			expires: "02:00:00",
+			footerType: 0,
 			info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
 		},
 		{
@@ -20,6 +21,7 @@
             owner: "Concerned Chef",
 			responses: 10000,
 			expires: "00:06:00",
+			footerType: 0,
 			info: "Nullam integer scelerisque tortor cum eget tempus vulputate iaculis curabitur, molestie vitae ac dapibus natoque aliquam orci duis, congue porta metus fames at potenti ligula mollis."
 		},
 		{
@@ -29,6 +31,7 @@
             owner: "Department of Education",
 			responses: 200,
 			expires: "00:00:05",
+			footerType: 0,
 			info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
 		},
 		{
@@ -38,6 +41,7 @@
 			owner: "Dylan",
 			responses: 1620,
 			expires: "02:30:00",
+			footerType: 1,
 			info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
 		},
 		{
@@ -47,6 +51,7 @@
             owner: "CDHB",
 			responses: 400,
 			expires: "00:06:00",
+			footerType: 0,
 			info: "Nullam integer scelerisque tortor cum eget tempus vulputate iaculis curabitur, molestie vitae ac dapibus natoque aliquam orci duis, congue porta metus fames at potenti ligula mollis."
 		},
 		{
@@ -56,6 +61,7 @@
             owner: "Department of Education",
 			responses: 1350,
 			expires: "00:00:05",
+			footerType: 1,
 			info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
 		}
 

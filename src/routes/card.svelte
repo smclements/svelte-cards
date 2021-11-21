@@ -1,30 +1,27 @@
 <script>
 	import { fade } from 'svelte/transition';
-	export let question;
+	export let question = {
+		id:0,
+		heading:"",
+		text:"",
+		owner:"",
+		responses:1,
+		expires:"",
+		info:""
+	};
 
-	let approxCount = 0;
-	
-	if (!question){
-		question = 		{
-			id: 1,
-            heading: "Politics",
-			text: "Should Auckland come out of lockdown? Auckland and parts of Waikato are at Alert Level 3 Step 2. Settings for Auckland will be reviewed on Monday 22 November 2021",
-			owner: "Dylan",
-			responses: 1000,
-			expires: "02:00:00",
-			info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
-		}
-	}
-	
-	Math.floor(question.responses / 100) * 100;
+	let approxCount = Math.floor(question.responses / 100) * 100;
 
-	let responseMsg = 'Fewer than 100 responses';
+	$: responseMsg = 'Fewer than 100 responses';
 	if (approxCount > 0) {
 		responseMsg = 'More than ' + approxCount + ' responses';
 	}
 
 	let showInfo = false;
 	const toggleShowInfo = () => (showInfo = !showInfo);
+
+	let sliderValue = 0;
+
 </script>
 
 <div class="card">
@@ -62,9 +59,18 @@
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-bottom: -2px">
 					<path fill="currentColor" d="M9 3.88V0l6 6-6 6V8.03C2.02 7.87 2.32 12.78 4.1 16-.3 11.26.64 3.66 9 3.88z"/>
 				</svg>
-			</button>		<div>
-				<button class="btn  card__btn">Yes</button>
-				<button class="btn  card__btn">No</button>
+			</button>		
+
+			<div class="card__footer_right">
+				{#if question.footerType == 0}
+					<button class="btn  card__btn">Yes</button>
+					<button class="btn  card__btn">No</button>
+				{:else if question.footerType == 1}
+					<label class="sliderLabel">
+						<span>{sliderValue}</span>
+						<input type=range bind:value={sliderValue} min=0 max=100 step=5>
+					</label>
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -130,6 +136,10 @@
         margin-top: auto;
 	}
 
+	.card__footer_right {
+		align-self: center;
+	}
+
 	.card__info {
 		display: flex;
 		justify-content: space-between;
@@ -156,5 +166,17 @@
 		font-size: 0.875rem;
 		line-height: 1.5;
 		
+	}
+
+	.sliderLabel {
+		display: flex;
+	}
+
+	.sliderLabel span{
+		margin-right: 0.75rem;
+	}
+
+	.sliderLabel input {
+		width: 100px;
 	}
 </style>

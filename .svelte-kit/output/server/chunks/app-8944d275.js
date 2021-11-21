@@ -1383,6 +1383,11 @@ function create_ssr_component(fn) {
     $$render
   };
 }
+function add_attribute(name, value, boolean) {
+  if (value == null || boolean && !value)
+    return "";
+  return ` ${name}${value === true ? "" : `=${typeof value === "string" ? JSON.stringify(escape(value)) : `"${value}"`}`}`;
+}
 function afterUpdate() {
 }
 var root_svelte_svelte_type_style_lang = "";
@@ -1473,9 +1478,9 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-8d3d29ea.js",
+      file: assets + "/_app/start-16ebf74b.js",
       css: [assets + "/_app/assets/start-61d1577b.css"],
-      js: [assets + "/_app/start-8d3d29ea.js", assets + "/_app/chunks/vendor-7d8a119d.js"]
+      js: [assets + "/_app/start-16ebf74b.js", assets + "/_app/chunks/vendor-e45dc500.js"]
     },
     fetched: void 0,
     floc: false,
@@ -1531,12 +1536,12 @@ const get_hooks = (hooks) => ({
   externalFetch: hooks.externalFetch || fetch
 });
 const module_lookup = {
-  "src/routes/__layout.svelte": () => import("./__layout-1251b2d0.js"),
-  "src/routes/__error.svelte": () => import("./__error-c537e8cb.js"),
-  "src/routes/index.svelte": () => import("./index-7e7ffbfd.js"),
-  "src/routes/card.svelte": () => import("./card-52d08d3c.js")
+  "src/routes/__layout.svelte": () => import("./__layout-6d1d602d.js"),
+  "src/routes/__error.svelte": () => import("./__error-671f94d0.js"),
+  "src/routes/index.svelte": () => import("./index-970b51e9.js"),
+  "src/routes/card.svelte": () => import("./card-06e147bc.js")
 };
-const metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-7a62f02a.js", "css": ["assets/pages/__layout.svelte-fa45c76a.css", "assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css"], "js": ["pages/__layout.svelte-7a62f02a.js", "chunks/vendor-7d8a119d.js"], "styles": [] }, "src/routes/__error.svelte": { "entry": "pages/__error.svelte-ccbad493.js", "css": ["assets/pages/__error.svelte-e11d9de6.css"], "js": ["pages/__error.svelte-ccbad493.js", "chunks/vendor-7d8a119d.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-a9b045af.js", "css": ["assets/pages/index.svelte-36782fd4.css", "assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css", "assets/pages/card.svelte-67c3c3e1.css"], "js": ["pages/index.svelte-a9b045af.js", "chunks/vendor-7d8a119d.js", "pages/card.svelte-7f274a04.js"], "styles": [] }, "src/routes/card.svelte": { "entry": "pages/card.svelte-7f274a04.js", "css": ["assets/pages/card.svelte-67c3c3e1.css"], "js": ["pages/card.svelte-7f274a04.js", "chunks/vendor-7d8a119d.js"], "styles": [] } };
+const metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-8181fd74.js", "css": ["assets/pages/__layout.svelte-fa45c76a.css", "assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css"], "js": ["pages/__layout.svelte-8181fd74.js", "chunks/vendor-e45dc500.js"], "styles": [] }, "src/routes/__error.svelte": { "entry": "pages/__error.svelte-50905911.js", "css": ["assets/pages/__error.svelte-e11d9de6.css"], "js": ["pages/__error.svelte-50905911.js", "chunks/vendor-e45dc500.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-8c56eac3.js", "css": ["assets/pages/index.svelte-36782fd4.css", "assets/ThemeToggler.svelte_svelte_type_style_lang-ca1e12c7.css", "assets/pages/card.svelte-77246889.css"], "js": ["pages/index.svelte-8c56eac3.js", "chunks/vendor-e45dc500.js", "pages/card.svelte-27e1ba30.js"], "styles": [] }, "src/routes/card.svelte": { "entry": "pages/card.svelte-27e1ba30.js", "css": ["assets/pages/card.svelte-77246889.css"], "js": ["pages/card.svelte-27e1ba30.js", "chunks/vendor-e45dc500.js"], "styles": [] } };
 async function load_component(file) {
   const { entry, css: css2, js, styles } = metadata_lookup[file];
   return {
@@ -1553,4 +1558,4 @@ function render(request, {
   const host = request.headers["host"];
   return respond({ ...request, host }, options, { prerender });
 }
-export { each as a, create_ssr_component as c, escape as e, getContext as g, init as i, render as r, subscribe as s, validate_component as v };
+export { each as a, add_attribute as b, create_ssr_component as c, escape as e, getContext as g, init as i, render as r, subscribe as s, validate_component as v };

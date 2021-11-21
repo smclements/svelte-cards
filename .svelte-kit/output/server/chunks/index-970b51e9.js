@@ -1,5 +1,5 @@
-import { c as create_ssr_component, v as validate_component, e as escape, a as each } from "./app-0c28a6fa.js";
-import Card from "./card-52d08d3c.js";
+import { c as create_ssr_component, v as validate_component, e as escape, a as each } from "./app-8944d275.js";
+import Card from "./card-06e147bc.js";
 /* empty css                                                     */const css$1 = {
   code: "button.svelte-10xz8oz{position:relative;width:2em;height:2em;text-indent:-9999px;background-color:transparent;border:none;opacity:0.4}.nice.svelte-10xz8oz{outline:none}svg.svelte-10xz8oz{position:absolute;width:100%;height:100%;right:0;bottom:0}path.svelte-10xz8oz{fill:var(--fg);transition:opacity 0.6s}.dark.svelte-10xz8oz{opacity:0}",
   map: null
@@ -28,6 +28,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       owner: "Dylan",
       responses: 1e3,
       expires: "02:00:00",
+      footerType: 0,
       info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
     },
     {
@@ -37,6 +38,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       owner: "Concerned Chef",
       responses: 1e4,
       expires: "00:06:00",
+      footerType: 0,
       info: "Nullam integer scelerisque tortor cum eget tempus vulputate iaculis curabitur, molestie vitae ac dapibus natoque aliquam orci duis, congue porta metus fames at potenti ligula mollis."
     },
     {
@@ -46,6 +48,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       owner: "Department of Education",
       responses: 200,
       expires: "00:00:05",
+      footerType: 0,
       info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
     },
     {
@@ -55,6 +58,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       owner: "Dylan",
       responses: 1620,
       expires: "02:30:00",
+      footerType: 1,
       info: "Lorem ipsum dolor sit amet consectetur adipiscing elit cum tempus neque, sociis fusce leo aptent purus vestibulum aliquet blandit facilisis felis quam, sodales porta justo montes dui litora ac nisl lacinia."
     },
     {
@@ -64,6 +68,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       owner: "CDHB",
       responses: 400,
       expires: "00:06:00",
+      footerType: 0,
       info: "Nullam integer scelerisque tortor cum eget tempus vulputate iaculis curabitur, molestie vitae ac dapibus natoque aliquam orci duis, congue porta metus fames at potenti ligula mollis."
     },
     {
@@ -73,6 +78,7 @@ const Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       owner: "Department of Education",
       responses: 1350,
       expires: "00:00:05",
+      footerType: 1,
       info: "Vestibulum nec augue diam tempor ante a ultricies suspendisse mus tortor id, lacus elit dis commodo curae fermentum ligula eget montes proin."
     }
   ];
