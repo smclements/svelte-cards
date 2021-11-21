@@ -1,28 +1,28 @@
 {
   ".svelte-kit/build/runtime/internal/start.js": {
-    "file": "start-16ebf74b.js",
+    "file": "start-d996934a.js",
     "src": ".svelte-kit/build/runtime/internal/start.js",
     "isEntry": true,
     "imports": [
-      "_vendor-e45dc500.js"
+      "_vendor-ce916593.js"
     ],
     "dynamicImports": [
       "src/routes/__layout.svelte",
       "src/routes/__error.svelte",
       "src/routes/index.svelte",
-      "src/routes/card.svelte"
+      "_card-68679399.js"
     ],
     "css": [
       "assets/start-61d1577b.css"
     ]
   },
   "src/routes/__layout.svelte": {
-    "file": "pages/__layout.svelte-8181fd74.js",
+    "file": "pages/__layout.svelte-1537d5e7.js",
     "src": "src/routes/__layout.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-e45dc500.js"
+      "_vendor-ce916593.js"
     ],
     "css": [
       "assets/pages/__layout.svelte-fa45c76a.css",
@@ -30,25 +30,25 @@
     ]
   },
   "src/routes/__error.svelte": {
-    "file": "pages/__error.svelte-50905911.js",
+    "file": "pages/__error.svelte-4ff1fa6b.js",
     "src": "src/routes/__error.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-e45dc500.js"
+      "_vendor-ce916593.js"
     ],
     "css": [
       "assets/pages/__error.svelte-e11d9de6.css"
     ]
   },
   "src/routes/index.svelte": {
-    "file": "pages/index.svelte-8c56eac3.js",
+    "file": "pages/index.svelte-a6f2e083.js",
     "src": "src/routes/index.svelte",
     "isEntry": true,
     "isDynamicEntry": true,
     "imports": [
-      "_vendor-e45dc500.js",
-      "src/routes/card.svelte"
+      "_vendor-ce916593.js",
+      "_card-68679399.js"
     ],
     "css": [
       "assets/pages/index.svelte-36782fd4.css",
@@ -56,18 +56,25 @@
     ]
   },
   "src/routes/card.svelte": {
-    "file": "pages/card.svelte-27e1ba30.js",
+    "file": "pages/card.svelte-0b67519d.js",
     "src": "src/routes/card.svelte",
     "isEntry": true,
-    "isDynamicEntry": true,
     "imports": [
-      "_vendor-e45dc500.js"
-    ],
-    "css": [
-      "assets/pages/card.svelte-77246889.css"
+      "_vendor-ce916593.js",
+      "_card-68679399.js"
     ]
   },
-  "_vendor-e45dc500.js": {
-    "file": "chunks/vendor-e45dc500.js"
+  "_vendor-ce916593.js": {
+    "file": "chunks/vendor-ce916593.js"
+  },
+  "_card-68679399.js": {
+    "file": "chunks/card-68679399.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_vendor-ce916593.js"
+    ],
+    "css": [
+      "assets/card-c0ae641a.css"
+    ]
   }
 }

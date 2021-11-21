@@ -2,6 +2,7 @@
 	import { page, navigating } from '$app/stores';
 	import ThemeToggler from '$lib/ThemeToggler.svelte';
 	import '../app.css';
+	import '../app.js';
 
 
 	$: section = $page.path.split('/')[1];

@@ -1,5 +1,7 @@
 <script>
 	import { fade } from 'svelte/transition';
+	import { FooterType } from '../app';
+
 	export let question = {
 		id:0,
 		heading:"",
@@ -10,12 +12,24 @@
 		info:""
 	};
 
+	let testOptions = [
+		{id:1, text:"Monday"},
+		{id:2, text:"Tuesday"},
+		{id:3, text:"Wednesday"},
+		{id:4, text:"Thursday"},
+		{id:5, text:"Friday"},
+	];
+	let selected;
+	let answer;
+
 	let approxCount = Math.floor(question.responses / 100) * 100;
 
-	$: responseMsg = 'Fewer than 100 responses';
-	if (approxCount > 0) {
-		responseMsg = 'More than ' + approxCount + ' responses';
+	let msg = 'Fewer than 103 responses';
+	if (+approxCount > 0) {
+		msg = 'More than ' + approxCount + ' responses';
 	}
+
+	$: responseMsg = msg;
 
 	let showInfo = false;
 	const toggleShowInfo = () => (showInfo = !showInfo);
@@ -62,14 +76,22 @@
 			</button>		
 
 			<div class="card__footer_right">
-				{#if question.footerType == 0}
+				{#if question.footerType == FooterType.YESNO}
 					<button class="btn  card__btn">Yes</button>
 					<button class="btn  card__btn">No</button>
-				{:else if question.footerType == 1}
+				{:else if question.footerType == FooterType.RANGE}
 					<label class="sliderLabel">
 						<span>{sliderValue}</span>
 						<input type=range bind:value={sliderValue} min=0 max=100 step=5>
 					</label>
+				{:else if question.footerType == FooterType.MULTICHOICE}
+					<select bind:value={selected} on:change="{() => answer = ''}">
+						{#each testOptions as testOption}
+							<option value={testOption}>
+								{testOption.text}
+							</option>
+						{/each}
+					</select>				
 				{/if}
 			</div>
 		</div>
@@ -178,5 +200,13 @@
 
 	.sliderLabel input {
 		width: 100px;
+	}
+
+	.card__footer select{
+		background-color: var(--bg);
+		border: 1px solid #cccccc;
+		color: var(--fg);		
+		padding: 7px;
+		min-width: 150px;
 	}
 </style>
