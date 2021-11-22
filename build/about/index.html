@@ -22,45 +22,16 @@
 		<!-- <link rel="manifest" href="/manifest.json"> -->
 		<link rel="icon" href="/favicon.png" />
 
-		
+		<title>About</title>
 
 		
 
-		<link rel="modulepreload" href="/_app/start-307f6d96.js">
-		<link rel="modulepreload" href="/_app/chunks/vendor-3742d41f.js">
-		<link rel="modulepreload" href="/_app/pages/__layout.svelte-12e55014.js">
-		<link rel="modulepreload" href="/_app/pages/card.svelte-7aed4b42.js">
-		<link rel="modulepreload" href="/_app/chunks/card-ab260bdf.js">
 		<link rel="stylesheet" href="/_app/assets/start-61d1577b.css">
 		<link rel="stylesheet" href="/_app/assets/pages/__layout.svelte-28b3ffb1.css">
+		<link rel="stylesheet" href="/_app/assets/pages/about.svelte-1d503d83.css">
 		<link rel="stylesheet" href="/_app/assets/card-c0ae641a.css">
 
-		<script type="module">
-			import { start } from "/_app/start-307f6d96.js";
-			start({
-				target: document.querySelector("#svelte"),
-				paths: {"base":"","assets":""},
-				session: {},
-				host: location.host,
-				route: true,
-				spa: false,
-				trailing_slash: "never",
-				hydrate: {
-					status: 200,
-					error: null,
-					nodes: [
-						import("/_app/pages/__layout.svelte-12e55014.js"),
-						import("/_app/pages/card.svelte-7aed4b42.js")
-					],
-					page: {
-						host: location.host, // TODO this is redundant
-						path: "\u002Fcard",
-						query: new URLSearchParams(""),
-						params: {}
-					}
-				}
-			});
-		</script>
+		
 	</head>
 	<body>
 		<div id="svelte">
@@ -70,7 +41,7 @@
 	
 
 	<nav class="svelte-1olh9b7"><ul class="svelte-1olh9b7"><li class="svelte-1olh9b7"><a sveltekit:prefetch href="/" class="svelte-1olh9b7">Home</a></li>
-			<li class="svelte-1olh9b7"><a sveltekit:prefetch href="/about" class="svelte-1olh9b7">About</a></li>
+			<li class="svelte-1olh9b7 active"><a sveltekit:prefetch href="/about" class="svelte-1olh9b7">About</a></li>
 			<li class="svelte-1olh9b7"><a sveltekit:prefetch href="/settings" class="svelte-1olh9b7">Settings</a></li>
 			<li class="svelte-1olh9b7"><a sveltekit:prefetch href="/signin" class="svelte-1olh9b7">Sign in</a></li></ul></nav>
 
@@ -78,18 +49,37 @@
 </button></div>  
 </header>
 
-<main class="svelte-380e9o"><div class="card svelte-1fbe96o"><div class="card__content svelte-1fbe96o"><div class="card__info svelte-1fbe96o"><div class="card__info_text svelte-1fbe96o">Fewer than 103 responses</div>
+<main class="svelte-380e9o">
+
+<div class="content svelte-12of6aj"><h1>About this app</h1>
+
+	<p>The purpose of this app is to quickly poll the user on a variety of topics / interests. The poll is intended to be a low friction way to quickly assemble a variety of inputs from the target audience. 
+    </p>
+
+	<p>Please refer to our <a href="./privacy">Privacy Policy</a> for a simple breakdown on how we use the data that you supply to us. 
+    </p>
+
+    <h1>Using this app</h1>
+    <p>The application will show you a series of questions. You choose whether you would like to respond to the question. An interactive example of our question card is shown below. As you interact with the example, we will show you a description of what the element does, and how to interpret what is shown.
+    </p>
+
+    <p><i>Make the following card report back details of what the user has touched, show the details below.</i></p>
+
+    <div class="wrapper svelte-12of6aj"><div class="innerWrapper svelte-12of6aj"><div class="card svelte-1fbe96o"><div class="card__content svelte-1fbe96o"><div class="card__info svelte-1fbe96o"><div class="card__info_text svelte-1fbe96o">More than 10000 responses</div>
 			<button class="btn card__btn btnInfo svelte-1fbe96o"><svg width="24" height="24" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" class="svelte-1fbe96o"><circle cx="16" cy="16" r="16" fill="#999999" class="svelte-1fbe96o"></circle><text x="16" y="25" style="font:1.5rem sans-serif;font-weight:800;fill:#fff;text-anchor:middle;vertical-align:middle" class="svelte-1fbe96o">i</text></svg></button></div>
 
-		<div class="card_question svelte-1fbe96o"><div class="card__title svelte-1fbe96o"></div>
-			<p class="card__text svelte-1fbe96o"></p></div>
+		<div class="card_question svelte-1fbe96o"><div class="card__title svelte-1fbe96o">Etiquette</div>
+			<p class="card__text svelte-1fbe96o">Should pineapple go on pizza? The truth is that this sweet fruit has no business on pizza, and everyone knows it, but for those who need explained in detail...</p></div>
 
 		
 
 		<div class="card__footer svelte-1fbe96o"><button class="btn card__btn svelte-1fbe96o">Share
 				<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" style="margin-bottom: -2px" class="svelte-1fbe96o"><path fill="currentColor" d="M9 3.88V0l6 6-6 6V8.03C2.02 7.87 2.32 12.78 4.1 16-.3 11.26.64 3.66 9 3.88z" class="svelte-1fbe96o"></path></svg></button>		
 
-			<div class="card__footer_right svelte-1fbe96o"></div></div></div>
+			<div class="card__footer_right svelte-1fbe96o"><button class="btn card__btn svelte-1fbe96o">Yes</button>
+					<button class="btn card__btn svelte-1fbe96o">No</button></div></div></div>
+</div></div></div>
+
 </div>
 </main>
 
