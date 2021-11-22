@@ -1,5 +1,5 @@
-import { c as create_ssr_component, v as validate_component } from "./app-4ea2f2a8.js";
-import { C as Card, F as FooterType } from "./card-845b3c23.js";
+import { c as create_ssr_component, v as validate_component } from "./app-2382bec8.js";
+import { C as Card, F as FooterType } from "./card-ff0b4657.js";
 const browser = false;
 const dev = false;
 var about_svelte_svelte_type_style_lang = "";

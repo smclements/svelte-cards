@@ -1,4 +1,4 @@
-import { c as create_ssr_component } from "./app-4ea2f2a8.js";
+import { c as create_ssr_component } from "./app-2382bec8.js";
 const Privacy = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `<h1 style="${"color:red"}">PRIVACY POLICY PLACEHOLDER</h1>
 

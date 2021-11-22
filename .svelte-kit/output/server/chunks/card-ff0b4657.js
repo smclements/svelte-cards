@@ -1,4 +1,4 @@
-import { c as create_ssr_component, e as escape, a as add_attribute, b as each } from "./app-4ea2f2a8.js";
+import { c as create_ssr_component, e as escape, a as add_attribute, b as each } from "./app-2382bec8.js";
 const FooterType = {
   YESNO: 0,
   RANGE: 1,

@@ -1,5 +1,5 @@
-import { c as create_ssr_component, e as escape, b as each, v as validate_component } from "./app-4ea2f2a8.js";
-import { C as Card, F as FooterType } from "./card-845b3c23.js";
+import { c as create_ssr_component, e as escape, b as each, v as validate_component } from "./app-2382bec8.js";
+import { C as Card, F as FooterType } from "./card-ff0b4657.js";
 var index_svelte_svelte_type_style_lang = "";
 const css = {
   code: ".cards.svelte-1le05dj{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0;background-color:var(--bg);transition:background-color 0.6s}.cards__item.svelte-1le05dj{display:flex;padding:1rem;width:100%}@media(min-width: 40rem){.cards__item.svelte-1le05dj{width:44%}}@media(min-width: 80rem){.cards__item.svelte-1le05dj{width:30%}}.content.svelte-1le05dj{width:100%;max-width:var(--column-width);margin:var(--column-margin-top) auto 0 auto}ul.svelte-1le05dj{padding:0}li.svelte-1le05dj{list-style:none;margin-bottom:1em;width:100%}.preamble.svelte-1le05dj{margin-left:2rem;color:var(--fg-light)}",

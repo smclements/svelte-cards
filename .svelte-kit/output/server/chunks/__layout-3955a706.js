@@ -1,4 +1,4 @@
-import { g as getContext, c as create_ssr_component, s as subscribe, a as add_attribute, v as validate_component } from "./app-4ea2f2a8.js";
+import { g as getContext, c as create_ssr_component, s as subscribe, a as add_attribute, v as validate_component } from "./app-2382bec8.js";
 const getStores = () => {
   const stores = getContext("__svelte__");
   return {
@@ -52,9 +52,7 @@ const Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   return `<header class="${"svelte-1olh9b7"}"><a class="${"logo svelte-1olh9b7"}" href="${"/"}"><img${add_attribute("src", logo, 0)} alt="${"AbhiApp"}" class="${"svelte-1olh9b7"}"></a>
 	
 
-	<nav class="${"svelte-1olh9b7"}"><ul class="${"svelte-1olh9b7"}"><li class="${["svelte-1olh9b7", $page.path === "/" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/"}" class="${"svelte-1olh9b7"}">Home</a></li>
-			<li class="${["svelte-1olh9b7", $page.path === "/about" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/about"}" class="${"svelte-1olh9b7"}">About</a></li>
-			<li class="${["svelte-1olh9b7", $page.path === "/settings" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/settings"}" class="${"svelte-1olh9b7"}">Settings</a></li>
+	<nav class="${"svelte-1olh9b7"}"><ul class="${"svelte-1olh9b7"}"><li class="${["svelte-1olh9b7", $page.path === "/about" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/about"}" class="${"svelte-1olh9b7"}">About</a></li>
 			<li class="${["svelte-1olh9b7", $page.path === "/signin" ? "active" : ""].join(" ").trim()}"><a sveltekit:prefetch href="${"/signin"}" class="${"svelte-1olh9b7"}">Sign in</a></li></ul></nav>
 
     <div class="${"themeToggler svelte-1olh9b7"}">${validate_component(ThemeToggler, "ThemeToggler").$$render($$result, {}, {}, {})}</div>  
